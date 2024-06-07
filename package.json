@@ -33,6 +33,7 @@
     "prepublishOnly": "npm run build",
     "dev": "tsup --watch",
     "dev:play": "pnpm --filter playground dev",
+    "dev:docs": "pnpm --filter docs dev",
     "build": "tsup",
     "lint": "eslint --fix .",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add .",

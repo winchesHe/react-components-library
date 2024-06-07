@@ -20,4 +20,4 @@
 
 `http://localhost:<port>/<component>/<demoName>`
 
-**e.g.** `http://localhost:5173/submittedsection/index`
+**e.g.** `http://localhost:5173/calendar/usage`

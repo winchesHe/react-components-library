@@ -78,7 +78,8 @@ export interface BaseCalendarProps<M extends Mode = Mode> {
 
 export type Mode = 'single' | 'range' | 'multiple'
 
-export interface CalendarProps<M extends Mode = Mode> extends HTMLAttributes<HTMLDivElement>, BaseCalendarProps<M> {
+export interface CalendarProps<M extends Mode = Mode> extends BaseCalendarProps<M> {
+  className?: string
   classNames?: CalendarClassNames
   /**
    * The mode of the date picker.
@@ -114,12 +115,6 @@ export interface CalendarProps<M extends Mode = Mode> extends HTMLAttributes<HTM
    */
   transitionSection?: React.MemoExoticComponent<any> | React.ForwardRefExoticComponent<any> | ComponentType<any>
 }
-
-type CalendarPropsWithRef<M extends Mode = Mode> = CalendarProps<M> & React.RefAttributes<HTMLDivElement>
-
-type ExtractCalendar<T extends CalendarPropsWithRef, M extends Mode = Mode> = T extends any
-  ? CalendarPropsWithRef<M>
-  : never
 
 export const Calendar = memo(
   forwardRef<HTMLDivElement, CalendarProps>((props, forwardedRef) => {
@@ -465,15 +460,6 @@ export const Calendar = memo(
       </CalendarContext.Provider>
     )
   }),
-) as unknown as (<T extends CalendarPropsWithRef = CalendarPropsWithRef>(
-  props: T extends { mode: infer M extends Mode } ? ExtractCalendar<T, M> : T,
-) => JSX.Element) & {
-  DayItem: typeof CalendarDayItem
-  Day: typeof CalendarDay
-  displayName: string
-}
+)
 
 Calendar.displayName = 'Calendar'
-
-Calendar.DayItem = CalendarDayItem
-Calendar.Day = CalendarDay

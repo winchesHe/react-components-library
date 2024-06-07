@@ -34,7 +34,7 @@ export const CalendarDay = memo<CalendarDayProps>((props) => {
         className={cn(
           'flex relative w-[44px] h-[44px] flex-col justify-center items-center rounded-full',
           className,
-          isHover && !isRange && 'bg-[#FFF7F0]',
+          isHover && !isRange && 'bg-[#FFF7F0] text-\[\#202020\]',
         )}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
