@@ -35,6 +35,7 @@
     "dev:play": "pnpm --filter playground dev",
     "dev:docs": "pnpm --filter docs dev",
     "build": "tsup",
+    "build:docs": "pnpm --filter docs build",
     "lint": "eslint --fix .",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add .",
     "release": "bumpp --execute=\"nr changelog\" --all && npm publish"

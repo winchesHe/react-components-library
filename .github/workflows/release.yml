@@ -25,12 +25,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
       # - name: Publish to npm
       #   run: |
       #     npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
