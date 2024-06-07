@@ -28,7 +28,9 @@ jobs:
       run: pnpm install --frozen-lockfile
 
     - name: Build project
-      run: npm run build:docs
+      run: |
+        npm run build:docs
+        cd docs
 
     - name: Deploy to Netlify
       uses: netlify/actions/cli@master
@@ -36,5 +38,5 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       with:
-        args: deploy --dir=docs/doc_build --prod
+        args: deploy --dir=doc_build --prod
         
