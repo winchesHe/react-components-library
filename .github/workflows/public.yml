@@ -29,15 +29,9 @@ jobs:
     - name: Build project
       run: npm run build:docs
 
-    - name: Upload static files as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: static-files
-        path: docs/docs_build # 更改为你的静态文件目录
-
     - name: Deploy to GitHub Pages
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/docs_build # 更改为你的静态文件目录
+        folder: docs/docs_build
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
