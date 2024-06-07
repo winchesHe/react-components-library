@@ -82,5 +82,6 @@
     "*.{js,ts,tsx}": [
       "eslint --fix"
     ]
-  }
+  },
+  "packageManager": "pnpm@8.15.5"
 }
