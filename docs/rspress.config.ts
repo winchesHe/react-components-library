@@ -17,7 +17,7 @@ export default defineConfig({
     mdxRs: false,
   },
   themeConfig: {
-    socialLinks: [{ icon: 'github', mode: 'link', content: 'https://github.com/library/-client-libs' }],
+    socialLinks: [{ icon: 'github', mode: 'link', content: 'https://github.com/winchesHe/react-components-library' }],
   },
   plugins: [pluginPreview(), pluginGenerateProps()],
   globalStyles: path.join(__dirname, 'styles/index.css'),

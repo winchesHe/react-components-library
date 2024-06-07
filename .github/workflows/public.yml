@@ -1,37 +1,39 @@
-# name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-#   workflow_dispatch:
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - name: Checkout repository
-#       uses: actions/checkout@v4
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-#     - name: Set up Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-#     - name: Setup pnpm
-#       uses: pnpm/action-setup@v2
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
   
-#     - name: Install dependencies
-#       run: pnpm install --frozen-lockfile
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
 
-#     - name: Build project
-#       run: npm run build:docs
+    - name: Build project
+      run: npm run build:docs
 
-#     - name: Deploy to GitHub Pages
-#       uses: JamesIves/github-pages-deploy-action@v4
-#       with:
-#         folder: docs/doc_build
-#         token: ${{ secrets.GITHUB_TOKEN }}
-#         branch: gh-pages
+    - name: Deploy to Netlify
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      with:
+        args: deploy --dir=docs/doc_build --prod
+        
