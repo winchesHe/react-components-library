@@ -3,8 +3,8 @@ pageType: home
 
 hero:
   name: libs-docs
-  text: libs-component-docs
-  tagline: libs-docs tagline
+  text: libs-docs
+  tagline: A modern documentation site generator for Rust
   actions:
     - theme: brand
       text: Quick Start
