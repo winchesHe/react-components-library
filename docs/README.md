@@ -1,4 +1,4 @@
-# MoeGo Libs Docs
+# Libs Docs
 
 ## Docs 查看组件的文档
 

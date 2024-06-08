@@ -1,4 +1,4 @@
-# MoeGo Libs Playground
+# Libs Playground
 
 ## `Playground` 查看并开发组件
 
